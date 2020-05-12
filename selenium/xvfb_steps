@@ -1,0 +1,12 @@
+# Notes from 
+# http://corpocrat.com/2008/08/19/how-to-install-xvfb-x11-server-in-linux-server/
+# http://corpocrat.com/2008/08/18/xvfb-problems/
+
+1) yum install Xvfb
+2) yum install xorg-x11-fonts*
+3) yum install Xorg
+4) yum install firefox
+5) install http://get.adobe.com/flashplayer/otherversions/ (flash)
+6) /etc/rc.d/init.d/xfs start
+7) Xvfb :1 -fp /usr/share/X11/fonts/misc/ -screen 0 1024x768x24 -ac &
+8) export DISPLAY=:1

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<report>
+    <source>
+        <sourceId>[% args.source.id %]</sourceId>
+        <sourceName>[% args.source.name %]</sourceName>
+        <sourceFile>[% args.source.file %]</sourceFile>
+    </source>
+    <accountDetails>
+        <accountId>[% args.account.id %]</accountId>
+        <accountLogin>[% args.account.login %]</accountLogin>
+        <accountPassword>[% args.account.password %]</accountPassword>
+    </accountDetails>
+    <fetchedTime>[% args.fetched_time %]</fetchedTime>
+    <generatedTime>[% args.generated_time %]</generatedTime>
+    <reportEntries>
+        [%- FOREACH record IN args.results %]
+        [%- IF record.adunit && record.clicks && record.revenue && record.impressions %]
+        <reportEntry>
+            <unformattedDate>[% record.date %]</unformattedDate>
+            <adUnit>[% record.adunit %]</adUnit>
+            <stats>
+                <clicks>[% record.clicks %]</clicks>
+                <revenue>[% record.revenue %]</revenue>
+                <impressions>[% record.impressions %]</impressions>
+            </stats>
+        </reportEntry>
+        [%- END %]
+        [%- END %] 
+    </reportEntries>
+</report>
